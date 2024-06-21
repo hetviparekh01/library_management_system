@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TokenService } from 'src/app/core/services/token.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-  userrole='user'
+  constructor(private tokenServive:TokenService){}
+  role:string=this.tokenServive.getRole() as string ;
 }

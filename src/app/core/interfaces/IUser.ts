@@ -1,6 +1,10 @@
-export interface IUser{
+export interface IUser{ 
     name: string;
     password: string;
-    role: string;
-    refreshtoken?: string;
 }
+export interface IRegister extends IUser {
+    role: string;
+}
+
+
+

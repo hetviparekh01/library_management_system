@@ -1,6 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IUser } from '../interfaces/IUser';
+import { IRegister, IUser } from '../interfaces/IUser';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class UserService {
   getUser():Observable<IUser>{
     return this.http.get<IUser>(`${this.apiUrl}getusers`)
   }
-  addUser(userdata:IUser):Observable<IUser>{
+  addUser(userdata:IRegister):Observable<IUser>{
     return this.http.post<IUser>(`${this.apiUrl}signup`,userdata)
   }
   loginUser(userdata:IUser){
