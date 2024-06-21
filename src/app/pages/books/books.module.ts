@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BooksRoutingModule } from './books-routing.module';
 import { AddBooksComponent } from './add-books/add-books.component';
 import { GetBooksComponent } from './get-books/get-books.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 
@@ -13,7 +14,8 @@ import { GetBooksComponent } from './get-books/get-books.component';
   ],
   imports: [
     CommonModule,
-    BooksRoutingModule
+    BooksRoutingModule,
+    AgGridModule
   ]
 })
 export class BooksModule { }

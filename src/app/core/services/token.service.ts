@@ -18,4 +18,8 @@ export class TokenService {
   getRole(){
     return localStorage.getItem('role')
   }
+  clearLocalStorage(){
+    localStorage.removeItem('accesstoken')
+    localStorage.removeItem('role')
+  }
 }

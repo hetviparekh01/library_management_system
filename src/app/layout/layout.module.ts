@@ -6,7 +6,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
-
+import { DropdownModule } from 'primeng/dropdown';
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    DropdownModule,
   ],
 })
 export class LayoutModule { }

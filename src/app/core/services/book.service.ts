@@ -11,7 +11,10 @@ export class BookService {
   constructor(private http:HttpClient) { }
   apiUrl='http://localhost:3000/api/book/'
   getBook():Observable<IBook>{
-    return this.http.get<IBook>(`${this.apiUrl}getauthors`)
+    return this.http.get<IBook>(`${this.apiUrl}getbooks`)
+  }
+  getBooksByFilteration():Observable<IBook>{
+    return this.http.get<IBook>(`${this.apiUrl}filterbooks`)
   }
   addBook(bookdata:IBook):Observable<IBook>{
     return this.http.post<IBook>(`${this.apiUrl}addbook`,bookdata)

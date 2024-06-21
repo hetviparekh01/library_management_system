@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CategoriesRoutingModule } from './categories-routing.module';
 import { GetCategoryComponent } from './get-category/get-category.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AddCategoryComponent } from './add-category/add-category.component';
   ],
   imports: [
     CommonModule,
-    CategoriesRoutingModule
+    CategoriesRoutingModule,
+    AgGridModule
   ]
 })
 export class CategoriesModule { }

@@ -22,4 +22,7 @@ export class AuthorService {
   deleteAuthor(id:string){
     return this.http.delete<IAuthor>(`${this.apiUrl}/deleteauthor?id=${id}`)
   }
+  getAuthorsByFilteration():Observable<IAuthor>{
+    return this.http.get<IAuthor>(`${this.apiUrl}filterauthors`)
+  }
 }

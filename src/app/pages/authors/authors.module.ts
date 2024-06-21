@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AuthorsRoutingModule } from './authors-routing.module';
 import { AddAuthorsComponent } from './add-authors/add-authors.component';
 import { GetAuthorsComponent } from './get-authors/get-authors.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { GetAuthorsComponent } from './get-authors/get-authors.component';
   ],
   imports: [
     CommonModule,
-    AuthorsRoutingModule
+    AuthorsRoutingModule,
+    AgGridModule
   ]
 })
 export class AuthorsModule { }

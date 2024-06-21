@@ -6,16 +6,12 @@ import { AddUsersComponent } from './add-users/add-users.component';
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'getallauthors',
+    redirectTo:'getallusers',
     pathMatch:'full'
   },
   {
-    path:'getallauthors',
+    path:'getallusers',
     component:GetUsersComponent,
-  },
-  {
-    path:'addauthors',
-    component:AddUsersComponent,
   },
 ];
 

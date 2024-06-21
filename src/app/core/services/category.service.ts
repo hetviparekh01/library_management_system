@@ -22,4 +22,7 @@ export class CategoryService {
   deleteCategory(id:string){
     return this.http.delete<ICategory>(`${this.apiUrl}/deletecategory?id=${id}`)
   }
+  getAuthorsByFilteration():Observable<ICategory>{
+    return this.http.get<ICategory>(`${this.apiUrl}filtercategories`)
+  }
 }
