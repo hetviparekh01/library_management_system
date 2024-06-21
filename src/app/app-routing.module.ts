@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HorizontalComponent } from './layout/horizontal/horizontal.component';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
-import { authGuard } from './guard/auth.guard';
-import { loginGuard } from './guard/login.guard';
+import { authGuard } from './core/guard/auth.guard';
+import { loginGuard } from './core/guard/login.guard';
 
 const routes: Routes = [
   {
