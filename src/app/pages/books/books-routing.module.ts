@@ -17,6 +17,10 @@ const routes: Routes = [
         path:'addbooks',
         component:AddBooksComponent,
       },
+      {
+        path:'editbooks/:id',
+        component:AddBooksComponent
+      }
 ]
 
 @NgModule({

@@ -4,6 +4,7 @@ import { AuthorsRoutingModule } from './authors-routing.module';
 import { AddAuthorsComponent } from './add-authors/add-authors.component';
 import { GetAuthorsComponent } from './get-authors/get-authors.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { AgGridModule } from 'ag-grid-angular';
   imports: [
     CommonModule,
     AuthorsRoutingModule,
-    AgGridModule
+    AgGridModule,
+    SharedModule
   ]
 })
 export class AuthorsModule { }

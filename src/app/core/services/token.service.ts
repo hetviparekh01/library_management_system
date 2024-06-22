@@ -18,6 +18,12 @@ export class TokenService {
   getRole(){
     return localStorage.getItem('role')
   }
+  setName(name:string){
+    localStorage.setItem('name',name)
+  }
+  getName(){
+    return localStorage.getItem('name')
+  }
   clearLocalStorage(){
     localStorage.removeItem('accesstoken')
     localStorage.removeItem('role')

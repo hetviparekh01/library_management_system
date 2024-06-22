@@ -1,1 +1,40 @@
-<p>add-books works!</p>
+<div class="container mt-5">
+    <h2 class="mb-4">Book Creation Form</h2>
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mt-3">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Enter book title" formControlName="title">
+        </div>
+        <div class="form-group mt-3">
+            <label for="author">Author</label>
+            <select class="form-control" id="author" *ngIf="role==='admin'" formControlName="author">
+                <option value="" disabled selected>Select author</option>
+                    <option *ngFor="let author of authorData" [value]="author._id" >{{ author.name }}</option>
+            </select>
+            <select class="form-control" id="author" *ngIf="role==='author'" formControlName="author">
+                <option value="" disabled selected>Select author</option>
+                <option  [value]="authorId">{{ authorName }}</option>
+            </select>
+        </div>
+        <div class="form-group mt-3">
+            <label for="category">Category</label>
+            <select class="form-control" id="category" formControlName="category">
+                <option value="" disabled selected>Select category</option>
+                    <option *ngFor="let category of categoryData" [value]="category._id" >{{ category.name }}</option>
+            </select>
+        </div>
+        <div class="form-group mt-3">
+            <label for="isbn">ISBN</label>
+            <input type="number" class="form-control" id="isbn" placeholder="Enter ISBN number"  formControlName="ISBN">
+        </div>
+        <div class="form-group mt-3">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" rows="3" placeholder="Enter book description" formControlName="description"></textarea>
+        </div>
+        <div class="form-group mt-3">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" placeholder="Enter book price" formControlName="price">
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Submit</button>
+    </form>
+</div>

@@ -24,7 +24,7 @@
               <li class="nav-item">
                 <a routerLink="books" class="nav-link" routerLinkActive="active">All books</a>
               </li>
-              <li class="nav-item" *ngIf="role==='admin'">
+              <li class="nav-item" *ngIf="role==='admin' || role==='author'">
                 <a routerLink="books/addbooks" class="nav-link" routerLinkActive="active">Add Book</a>
               </li>
             </ul>

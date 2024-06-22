@@ -23,8 +23,6 @@ getCategory() {
   this.categoryService.getCategory().subscribe({
     next: (response:any) => {
       this.categoryData = response.content;
-      console.log(this.categoryData);
-      console.log(response);
     },
     error: (err) => {
       console.log(err);

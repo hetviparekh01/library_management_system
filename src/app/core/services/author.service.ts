@@ -25,4 +25,9 @@ export class AuthorService {
   getAuthorsByFilteration():Observable<IAuthor>{
     return this.http.get<IAuthor>(`${this.apiUrl}filterauthors`)
   }
+  getAuthorByName(name:string){
+    return this.http.get<IAuthor>(`${this.apiUrl}getauthorbyname`,{
+      params:{name},
+    })
+  }
 }

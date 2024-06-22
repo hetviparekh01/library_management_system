@@ -25,4 +25,7 @@ export class BookService {
   deleteBook(id:string){
     return this.http.delete<IBook>(`${this.apiUrl}/deletebook?id=${id}`)
   }
+  getBookById(id:string){
+    return this.http.get<IBook>(`${this.apiUrl}getbookbyid/${id}`)
+  }
 }

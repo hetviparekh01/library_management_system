@@ -4,6 +4,8 @@ import { BooksRoutingModule } from './books-routing.module';
 import { AddBooksComponent } from './add-books/add-books.component';
 import { GetBooksComponent } from './get-books/get-books.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -15,7 +17,10 @@ import { AgGridModule } from 'ag-grid-angular';
   imports: [
     CommonModule,
     BooksRoutingModule,
-    AgGridModule
-  ]
+    AgGridModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule
+  ],
 })
 export class BooksModule { }

@@ -27,6 +27,7 @@ export class LoginComponent {
       next:(response:any)=>{
           this.tokenservice.setToken(response.content.Accesstoken)
           this.tokenservice.setRole(response.content.role)
+          this.tokenservice.setName(response.content.name)
           alert(response.content.message);
           this.router.navigate([''])
       },

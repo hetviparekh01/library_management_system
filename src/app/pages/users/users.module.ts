@@ -5,6 +5,7 @@ import { UsersRoutingModule } from './users-routing.module';
 import { GetUsersComponent } from './get-users/get-users.component';
 import { AddUsersComponent } from './add-users/add-users.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { SharedModule } from 'primeng/api';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AgGridModule } from 'ag-grid-angular';
   imports: [
     CommonModule,
     UsersRoutingModule,
-    AgGridModule
+    AgGridModule,
+    SharedModule
   ]
 })
 export class UsersModule { }
