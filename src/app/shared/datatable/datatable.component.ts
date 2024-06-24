@@ -7,6 +7,11 @@ import { ColDef } from 'ag-grid-community';
   styleUrls: ['./datatable.component.scss']
 })
 export class DatatableComponent {
-  @Input() columnDefs!:ColDef[]
-  @Input() rowData:any
+  @Input() columnDefs!: ColDef[]
+  @Input() rowData: any
+  pagesize:boolean=true
+  gridOptions = {
+    rowHeight: 65,
+    // paginationPageSize: 10,
+  }
 }

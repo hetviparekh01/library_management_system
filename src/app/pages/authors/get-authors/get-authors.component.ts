@@ -9,6 +9,7 @@ import { CustomRendererComponent } from 'src/app/shared/cellrenderer/custom-rend
   styleUrls: ['./get-authors.component.scss'],
 })
 export class GetAuthorsComponent implements OnInit {
+
   constructor(private authorService: AuthorService) {}
   authorData: any;
   rowData: any = [];
@@ -16,12 +17,20 @@ export class GetAuthorsComponent implements OnInit {
     { headerName: 'AuthorName', field: 'name', flex: 3 },
     { headerName: 'Nationality', field: 'nationality', flex: 3 },
     { headerName: 'Biography', field: 'biography', flex: 3 },
-    { headerName: 'Action', cellRenderer: CustomRendererComponent },
+    { headerName: 'Action', cellRenderer: CustomRendererComponent ,cellRendererParams:{
+      deleteFun:(id:string)=>this.deleteAuthorFn(id),
+      update:(id:string)=>this.updateAuthorFn(id)
+    }},
   ];
   ngOnInit(): void {
     this.getAuthor()
   }
-
+  updateAuthorFn(id: string) {
+      console.log(id);
+  }
+  deleteAuthorFn(id: string) {
+    console.log(id);
+  }
   getAuthor() {
     this.authorService.getAuthor().subscribe({
       next: (response) => {

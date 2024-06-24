@@ -18,10 +18,10 @@ export class CustomRendererComponent implements ICellRendererAngularComp {
     this.params = params;
     return true;
   }
-  deleteUser() {
-    this.params.deleteUser(this.params.data._id);
+  deleteFun() {
+    this.params.deleteFun(this.params.data._id);
   }
-  updateUser() {
-    this.params.updateUser(this.params.data._id);
+  update() {
+    this.params.update(this.params.data._id);
   }
 }

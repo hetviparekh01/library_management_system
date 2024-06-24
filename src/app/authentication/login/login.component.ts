@@ -32,7 +32,7 @@ export class LoginComponent {
           this.router.navigate([''])
       },
       error:(err)=>{
-        alert(err)
+        alert(err.error)
       }
     })
   }

@@ -35,6 +35,8 @@
             <label for="price">Price</label>
             <input type="number" class="form-control" id="price" placeholder="Enter book price" formControlName="price">
         </div>
-        <button type="submit" class="btn btn-success mt-3">Submit</button>
+        <button type="submit" class="btn btn-success mt-3" [hidden]="isUpdate">Submit</button>
+        <button type="submit" class="btn btn-info mt-3" [hidden]="isSubmit" (click)="onUpdateSubmit()">Update</button>
+        <button type="submit" class="btn btn-secondary mt-3 mx-2" [hidden]="isSubmit">Cancel</button>
     </form>
 </div>

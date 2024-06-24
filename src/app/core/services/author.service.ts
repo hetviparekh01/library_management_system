@@ -29,5 +29,5 @@ export class AuthorService {
     return this.http.get<IAuthor>(`${this.apiUrl}getauthorbyname`,{
       params:{name},
     })
-  }
+  } 
 }

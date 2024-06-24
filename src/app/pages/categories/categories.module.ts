@@ -5,6 +5,7 @@ import { CategoriesRoutingModule } from './categories-routing.module';
 import { GetCategoryComponent } from './get-category/get-category.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AgGridModule } from 'ag-grid-angular';
   imports: [
     CommonModule,
     CategoriesRoutingModule,
-    AgGridModule
+    AgGridModule,
+    SharedModule
   ]
 })
 export class CategoriesModule { }

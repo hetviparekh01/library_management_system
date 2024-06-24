@@ -16,8 +16,8 @@ export class GetUsersComponent implements OnInit {
     { headerName: 'Name', field: 'name', flex: 3 },
     { headerName: 'role', field: 'role', flex: 3 },
     { headerName: 'Action', cellRenderer: CustomRendererComponent ,cellRendererParams:{
-      deleteUser:(id:string)=>this.deleteUserFn(id),
-      updateUser:(data:any)=>this.updateUserfn(data)
+      deleteFun:(id:string)=>this.deleteUserFn(id),
+      update:(data:any)=>this.updateUserfn(data)
     }},
   ];
   ngOnInit(): void {

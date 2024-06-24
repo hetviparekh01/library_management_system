@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IAuthor } from 'src/app/core/interfaces';
 import { AuthorService } from 'src/app/core/services/author.service';
 import { BookService } from 'src/app/core/services/book.service';
@@ -13,6 +13,7 @@ import { TokenService } from 'src/app/core/services/token.service';
   styleUrls: ['./add-books.component.scss'],
 })
 export class AddBooksComponent implements OnInit {
+
   authorName: any;
   bookForm: FormGroup;
   authorData: any;
@@ -22,6 +23,7 @@ export class AddBooksComponent implements OnInit {
   data:any;
   bookId:string=this.activeRoute.snapshot.paramMap.get('id') as string
   role = this.tokenService.getRole() as string;
+  isSubmit: boolean=true;
   constructor(
     private fb: FormBuilder,
     private authorService: AuthorService,
@@ -29,6 +31,7 @@ export class AddBooksComponent implements OnInit {
     private categoryService: CategoryService,
     private bookService:BookService,
     private activeRoute:ActivatedRoute,
+    private route:Router
   ) {
     this.bookForm = fb.group({
       title: ['', Validators.compose([Validators.required])],
@@ -48,15 +51,38 @@ export class AddBooksComponent implements OnInit {
     }
     if(this.activeRoute.snapshot.paramMap.get('id')){
         this.isUpdate=true;
+        this.isSubmit=false
         this.getDataById()
     }
     this.getCategories();
   }
-  
+
+
+  updateData(){
+    this.bookService.updateBook(this.bookForm.value,this.bookId).subscribe({
+      next:(response)=>{
+        // console.log(response);
+        alert(response)  
+        this.route.navigate(['books/getallBooks'])
+
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    })
+  }
+  onUpdateSubmit() {
+    if(this.bookForm.valid){
+      this.updateData();
+    }else{
+      alert("error in filling the form")
+      console.log(this.bookForm.errors);
+    }  
+  }
   getDataById() {
    this.bookService.getBookById(this.bookId).subscribe({
       next:(response:any)=>{
-        console.log(response.content[0].title);
+        // console.log(response.content[0].title);
         if(this.isUpdate){
           this.bookForm.patchValue({
             title:response.content[0].title,
@@ -130,7 +156,9 @@ export class AddBooksComponent implements OnInit {
   onSubmit() {
     if (this.bookForm.valid) {
       // console.log(this.bookForm.value);
-      this.addBook();
+      if(!this.isUpdate){
+        this.addBook();
+      }
       this.bookForm.reset()
     } else {
       console.log(this.bookForm.errors);

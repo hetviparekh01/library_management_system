@@ -8,6 +8,7 @@ import { LayoutModule } from './layout/layout.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { TokenInterceptor } from './core/helper/token.interceptor';
+import { ErrorInterceptor } from './core/helper/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,10 @@ import { TokenInterceptor } from './core/helper/token.interceptor';
   ],
   providers: [
     {
-      provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true
+      provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true,
+    },
+    {
+      provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor,multi:true,
     }
   ],
   bootstrap: [AppComponent]
