@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { CustomRendererComponent } from './cellrenderer/custom-renderer/custom-renderer.component';
 import { DatatableComponent } from './datatable/datatable.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { CustomfilterationComponent } from './customfilteration/customfilteration.component';
 
 
 
 @NgModule({
   declarations: [
     CustomRendererComponent,
-    DatatableComponent
+    DatatableComponent,
+    CustomfilterationComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { AgGridModule } from 'ag-grid-angular';
   ],
   exports:[
     CustomRendererComponent,
-    DatatableComponent
+    DatatableComponent,
+    CustomfilterationComponent
   ]
 })
 export class SharedModule { }

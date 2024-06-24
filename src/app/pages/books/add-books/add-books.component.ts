@@ -134,19 +134,23 @@ export class AddBooksComponent implements OnInit {
       },
     });
   }
-
+  
   addBook(){
-    this.bookService.addBook({
+    const bookdata={
       title:this.bookForm.value.title,
       author:this.bookForm.value.author,
       category:this.bookForm.value.category,
       ISBN:this.bookForm.value.ISBN,
       description:this.bookForm.value.description,
       price:this.bookForm.value.price,
-    }).subscribe({
+    }
+    this.bookService.addBook(
+      this.bookForm.value
+    ).subscribe({
       next:(response)=>{
           // console.log(response);
           alert(response)
+        this.route.navigate(['books/getallBooks'])
       },
       error:(err)=>{
         console.log(err);

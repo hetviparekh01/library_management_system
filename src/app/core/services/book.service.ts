@@ -13,9 +13,9 @@ export class BookService {
   getBook():Observable<IBook>{
     return this.http.get<IBook>(`${this.apiUrl}filterbooks`)
   }
-  getBooksByFilteration(searchTerm:any):Observable<IBook>{
+  getBooksByFilteration(params:any):Observable<IBook>{
     return this.http.get<IBook>(`${this.apiUrl}filterbooks`,{
-      params:searchTerm 
+      params:params 
     })
   }
   addBook(bookdata:IBook):Observable<IBook>{

@@ -1,7 +1,8 @@
-
-<button type="button" class="btn  me-2 btn-danger" (click)="deleteFun()">
-    Delete
-</button>
-<button type="button" class="btn btn-info" (click)="update()">
-    Update
-</button>
+<div *ngIf="role!=='user'">
+    <button type="button" class="btn  me-2 btn-danger" (click)="deleteFun()" >
+        Delete
+    </button>
+    <button type="button" class="btn btn-info" (click)="update()">
+        Update
+    </button>
+</div>

@@ -37,7 +37,7 @@ export class SignupComponent {
     if(this.signupform.valid){
       this.addUser()
       console.log(this.signupform.value);
-
+      this.signupform.reset()
     }else{
       console.log(this.signupform.errors);
     }

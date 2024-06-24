@@ -25,7 +25,8 @@ export class TokenService {
     return localStorage.getItem('name')
   }
   clearLocalStorage(){
-    localStorage.removeItem('accesstoken')
-    localStorage.removeItem('role')
+    // localStorage.removeItem('accesstoken')
+    // localStorage.removeItem('role')
+    localStorage.clear()
   }
 }
