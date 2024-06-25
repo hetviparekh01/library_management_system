@@ -35,10 +35,9 @@ export class GetAuthorsComponent implements OnInit {
     this.authorService.getAuthor().subscribe({
       next: (response) => {
         this.authorData = response;
-        console.log(response);
       },
       error: (err) => {
-        console.log(err);
+        alert(err.errors)
       },
     });
   }

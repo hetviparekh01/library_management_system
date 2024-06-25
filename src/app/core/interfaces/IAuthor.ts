@@ -1,6 +1,5 @@
-
 export interface IAuthor extends Document {
-     name: string;
-     biography: string;
-     nationality: string;
+  name: string;
+  biography: string;
+  nationality: string;
 }

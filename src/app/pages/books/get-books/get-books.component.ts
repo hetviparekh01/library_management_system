@@ -24,7 +24,6 @@ export class GetBooksComponent implements OnInit {
   bookData: any = [];
   rowData: any = [];
   subscription!: Subscription;
-  // isActionColumnVisible:boolean=false;
   constructor(
     private bookservice: BookService,
     private route: Router,
@@ -33,10 +32,8 @@ export class GetBooksComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     if (this.tokenService.getRole() === 'author') {
-      // this.subscription = this.filterAuthor();
       this.filterAuthor();
     } else {
-      // this.subscription = this.getBook();
       this.getBook();
     }
   }
@@ -53,7 +50,6 @@ export class GetBooksComponent implements OnInit {
         deleteFun: (id: string) => this.deleteBookFn(id),
         update: (id: string) => this.updateBookFn(id),
       },
-      // hide:this.isActionColumnVisible
     },
   ];
   deleteBookFn(id: string) {
@@ -79,10 +75,9 @@ export class GetBooksComponent implements OnInit {
     this.bookservice.getBooksByFilteration(this.params).subscribe({
       next: (response: any) => {
         this.bookData = response.content;
-        // console.log(response);
       },
       error: (err) => {
-        console.log(err);
+        alert(err.errors)
       },
     });
   }
@@ -98,10 +93,9 @@ export class GetBooksComponent implements OnInit {
     this.bookservice.getBooksByFilteration(this.params).subscribe({
       next: (response: any) => {
         this.bookData = response.content;
-        // console.log(response);
       },
       error: (err) => {
-        console.log(err);
+        alert(err.errors)
       },
     });
   }
@@ -113,10 +107,9 @@ export class GetBooksComponent implements OnInit {
     this.bookservice.getBooksByFilteration(this.params).subscribe({
       next: (response: any) => {
         this.bookData = response.content;
-        // console.log(response);
       },
       error: (err) => {
-        console.log(err);
+        alert(err.errors)
       },
     });
   }
@@ -128,10 +121,9 @@ export class GetBooksComponent implements OnInit {
     this.bookservice.getBooksByFilteration(this.params).subscribe({
       next: (response: any) => {
         this.bookData = response.content;
-        // console.log(response);
       },
       error: (err) => {
-        console.log(err);
+        alert(err.errors)
       },
     });
   }
@@ -139,14 +131,10 @@ export class GetBooksComponent implements OnInit {
     this.bookservice.getBook().subscribe({
       next: (response: any) => {
         this.bookData = response.content;
-        // console.log(response);
       },
       error: (err) => {
-        console.log(err);
+        alert(err.errors)
       },
     });
   }
-  // ngOnDestroy() {
-  //   this.subscription.unsubscribe();
-  // }
 }

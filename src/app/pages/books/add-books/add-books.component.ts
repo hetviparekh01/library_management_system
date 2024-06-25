@@ -13,25 +13,24 @@ import { TokenService } from 'src/app/core/services/token.service';
   styleUrls: ['./add-books.component.scss'],
 })
 export class AddBooksComponent implements OnInit {
-
   authorName: any;
   bookForm: FormGroup;
   authorData: any;
   categoryData: any;
   authorId: any;
-  isUpdate:boolean=false;
-  data:any;
-  bookId:string=this.activeRoute.snapshot.paramMap.get('id') as string
+  isUpdate: boolean = false;
+  data: any;
+  bookId: string = this.activeRoute.snapshot.paramMap.get('id') as string;
   role = this.tokenService.getRole() as string;
-  isSubmit: boolean=true;
+  isSubmit: boolean = true;
   constructor(
     private fb: FormBuilder,
     private authorService: AuthorService,
     private tokenService: TokenService,
     private categoryService: CategoryService,
-    private bookService:BookService,
-    private activeRoute:ActivatedRoute,
-    private route:Router
+    private bookService: BookService,
+    private activeRoute: ActivatedRoute,
+    private route: Router
   ) {
     this.bookForm = fb.group({
       title: ['', Validators.compose([Validators.required])],
@@ -49,55 +48,49 @@ export class AddBooksComponent implements OnInit {
     } else {
       this.getAuthorById();
     }
-    if(this.activeRoute.snapshot.paramMap.get('id')){
-        this.isUpdate=true;
-        this.isSubmit=false
-        this.getDataById()
+    if (this.activeRoute.snapshot.paramMap.get('id')) {
+      this.isUpdate = true;
+      this.isSubmit = false;
+      this.getDataById();
     }
     this.getCategories();
   }
 
-
-  updateData(){
-    this.bookService.updateBook(this.bookForm.value,this.bookId).subscribe({
-      next:(response)=>{
-        // console.log(response);
-        alert(response)  
-        this.route.navigate(['books/getallBooks'])
-
+  updateData() {
+    this.bookService.updateBook(this.bookForm.value, this.bookId).subscribe({
+      next: (response) => {
+        alert(response);
+        this.route.navigate(['books/getallBooks']);
       },
-      error:(err)=>{
-        console.log(err);
-      }
-    })
+      error: (err) => {
+        alert(err.errors);
+      },
+    });
   }
   onUpdateSubmit() {
-    if(this.bookForm.valid){
+    if (this.bookForm.valid) {
       this.updateData();
-    }else{
-      alert("error in filling the form")
-      console.log(this.bookForm.errors);
-    }  
+    } else {
+      alert('error in filling the form');
+    }
   }
   getDataById() {
-   this.bookService.getBookById(this.bookId).subscribe({
-      next:(response:any)=>{
-        // console.log(response.content[0].title);
-        if(this.isUpdate){
+    this.bookService.getBookById(this.bookId).subscribe({
+      next: (response: any) => {
+        if (this.isUpdate) {
           this.bookForm.patchValue({
-            title:response.content[0].title,
-            ISBN:response.content[0].ISBN,
-            description:response.content[0].description,
-            price:response.content[0].price,
-          })
+            title: response.content[0].title,
+            ISBN: response.content[0].ISBN,
+            description: response.content[0].description,
+            price: response.content[0].price,
+          });
         }
       },
-      error:(err)=>{
-        console.log(err);
-      }
-   })
+      error: (err) => {
+        alert(err.errors);
+      },
+    });
   }
-
 
   getAuthorById() {
     this.authorService
@@ -108,7 +101,7 @@ export class AddBooksComponent implements OnInit {
           this.authorName = response.content.name;
         },
         error: (err) => {
-          console.log(err);
+          alert(err.errors);
         },
       });
   }
@@ -119,7 +112,7 @@ export class AddBooksComponent implements OnInit {
         this.authorData = response;
       },
       error: (err) => {
-        console.log(err);
+        alert(err.errors);
       },
     });
   }
@@ -130,42 +123,38 @@ export class AddBooksComponent implements OnInit {
         this.categoryData = response.content;
       },
       error: (err) => {
-        console.log(err);
+        alert(err.errors);
       },
     });
   }
-  
-  addBook(){
-    const bookdata={
-      title:this.bookForm.value.title,
-      author:this.bookForm.value.author,
-      category:this.bookForm.value.category,
-      ISBN:this.bookForm.value.ISBN,
-      description:this.bookForm.value.description,
-      price:this.bookForm.value.price,
-    }
-    this.bookService.addBook(
-      this.bookForm.value
-    ).subscribe({
-      next:(response)=>{
-          // console.log(response);
-          alert(response)
-        this.route.navigate(['books/getallBooks'])
+
+  addBook() {
+    const bookdata = {
+      title: this.bookForm.value.title,
+      author: this.bookForm.value.author,
+      category: this.bookForm.value.category,
+      ISBN: this.bookForm.value.ISBN,
+      description: this.bookForm.value.description,
+      price: this.bookForm.value.price,
+    };
+    this.bookService.addBook(this.bookForm.value).subscribe({
+      next: (response) => {
+        alert(response);
+        this.route.navigate(['books/getallBooks']);
       },
-      error:(err)=>{
-        console.log(err);
-      }
-    })
+      error: (err) => {
+        alert(err.errors);
+      },
+    });
   }
   onSubmit() {
     if (this.bookForm.valid) {
-      // console.log(this.bookForm.value);
-      if(!this.isUpdate){
+      if (!this.isUpdate) {
         this.addBook();
       }
-      this.bookForm.reset()
+      this.bookForm.reset();
     } else {
-      console.log(this.bookForm.errors);
+      alert(this.bookForm.errors);
     }
   }
 }

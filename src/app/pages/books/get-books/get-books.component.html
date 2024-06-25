@@ -1,5 +1,6 @@
-
-  
-
-<app-customfilteration (filtersearch)="filtersearch($event)" (filterlimit)="filterlimit($event)" (filterpage)="filterpage($event)"></app-customfilteration>
+<app-customfilteration
+  (filtersearch)="filtersearch($event)"
+  (filterlimit)="filterlimit($event)"
+  (filterpage)="filterpage($event)"
+></app-customfilteration>
 <app-datatable [rowData]="bookData" [columnDefs]="columnDefs"></app-datatable>

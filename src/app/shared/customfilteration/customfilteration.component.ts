@@ -20,15 +20,4 @@ export class CustomfilterationComponent {
   filterlimitFn(_t10: HTMLSelectElement) {
     this.filterlimit.emit(_t10)
   }
-
-
-
-
-// filterpageFn(_t18: HTMLInputElement) {
-//   this.filtersearch.emit()
-// }
-// filterlimitFn(_t10: HTMLSelectElement) {
-// throw new Error('Method not implemented.');
-// }
-
 }

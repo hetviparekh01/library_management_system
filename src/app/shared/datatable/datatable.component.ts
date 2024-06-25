@@ -12,6 +12,5 @@ export class DatatableComponent {
   pagesize:boolean=true
   gridOptions = {
     rowHeight: 65,
-    // paginationPageSize: 10,
   }
 }
