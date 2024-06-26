@@ -59,7 +59,7 @@ export class GetBooksComponent implements OnInit {
         this.getBook();
       },
       error: (err) => {
-        alert(err.errors);
+        alert(err.error.content);
       },
     });
   }
@@ -77,7 +77,7 @@ export class GetBooksComponent implements OnInit {
         this.bookData = response.content;
       },
       error: (err) => {
-        alert(err.errors)
+        // alert(err)
       },
     });
   }
@@ -95,7 +95,7 @@ export class GetBooksComponent implements OnInit {
         this.bookData = response.content;
       },
       error: (err) => {
-        alert(err.errors)
+        // alert(err)
       },
     });
   }
@@ -109,7 +109,7 @@ export class GetBooksComponent implements OnInit {
         this.bookData = response.content;
       },
       error: (err) => {
-        alert(err.errors)
+        // alert(err)
       },
     });
   }
@@ -123,7 +123,7 @@ export class GetBooksComponent implements OnInit {
         this.bookData = response.content;
       },
       error: (err) => {
-        alert(err.errors)
+        // alert(err)
       },
     });
   }
@@ -133,7 +133,8 @@ export class GetBooksComponent implements OnInit {
         this.bookData = response.content;
       },
       error: (err) => {
-        alert(err.errors)
+        console.log(err.error.content);
+        alert(err.error.content)
       },
     });
   }

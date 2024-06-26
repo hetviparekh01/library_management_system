@@ -37,7 +37,7 @@ export class GetAuthorsComponent implements OnInit {
         this.authorData = response;
       },
       error: (err) => {
-        alert(err.errors)
+        // alert(err.errors)
       },
     });
   }

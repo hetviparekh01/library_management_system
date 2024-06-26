@@ -35,7 +35,7 @@ export class GetUsersComponent implements OnInit {
         this.userData=response.content
       },
       error:(err)=>{
-        console.log(err);
+        // console.log(err);
       }
     })
   }

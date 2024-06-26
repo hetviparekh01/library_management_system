@@ -63,7 +63,7 @@ export class AddBooksComponent implements OnInit {
         this.route.navigate(['books/getallBooks']);
       },
       error: (err) => {
-        alert(err.errors);
+        alert(err.error.content);
       },
     });
   }
@@ -87,7 +87,7 @@ export class AddBooksComponent implements OnInit {
         }
       },
       error: (err) => {
-        alert(err.errors);
+        // alert(err.errors);
       },
     });
   }
@@ -101,7 +101,7 @@ export class AddBooksComponent implements OnInit {
           this.authorName = response.content.name;
         },
         error: (err) => {
-          alert(err.errors);
+          // alert(err.errors);
         },
       });
   }
@@ -112,7 +112,7 @@ export class AddBooksComponent implements OnInit {
         this.authorData = response;
       },
       error: (err) => {
-        alert(err.errors);
+        // alert(err.errors);
       },
     });
   }
@@ -123,7 +123,7 @@ export class AddBooksComponent implements OnInit {
         this.categoryData = response.content;
       },
       error: (err) => {
-        alert(err.errors);
+        // alert(err.error.content);
       },
     });
   }
@@ -143,7 +143,7 @@ export class AddBooksComponent implements OnInit {
         this.route.navigate(['books/getallBooks']);
       },
       error: (err) => {
-        alert(err.errors);
+        alert(err.error.content);
       },
     });
   }

@@ -35,7 +35,7 @@ getCategory() {
       this.categoryData = response.content;
     },
     error: (err) => {
-      console.log(err);
+      // console.log(err);
     },
   });
 }
