@@ -32,6 +32,7 @@ export class LoginComponent {
       })
       .subscribe({
         next: (response: any) => {
+          console.log(response);
           this.tokenservice.setToken(response.content.Accesstoken);
           this.tokenservice.setRole(response.content.role);
           this.tokenservice.setName(response.content.name);

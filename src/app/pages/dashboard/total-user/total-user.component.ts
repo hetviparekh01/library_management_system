@@ -35,11 +35,12 @@ export class TotalUserComponent {
         console.log(err);
       }
     });
+    
     this.data = {
       labels: ['Authors', 'User'],
       datasets: [
         {
-          data: [13,17],
+          data: [this.authorData,this.userData],
           backgroundColor: [
             '#FF6384',
             '#36A2EB',
@@ -57,18 +58,6 @@ export class TotalUserComponent {
       responsive: true,
       maintainAspectRatio: false
     };
-    this.getChart()
-  }
-  getAuthor(){
- 
-  }
-    getUser(){
-    
-    }
-
-  
-
-  getChart(){
-
+   
   }
 }

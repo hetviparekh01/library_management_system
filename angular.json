@@ -36,8 +36,7 @@
               "node_modules/ag-grid-community/styles/ag-theme-alpine.css"  
             ],
             "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js" ,
-              "node_modules/apexcharts/dist/apexcharts.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js" 
             ]
           },
           "configurations": {

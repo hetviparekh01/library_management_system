@@ -109,10 +109,11 @@ export class AddBooksComponent implements OnInit {
   getAuthors() {
     this.authorService.getAuthor().subscribe({
       next: (response) => {
+        console.log(response);
         this.authorData = response;
       },
       error: (err) => {
-        // alert(err.errors);
+        console.log(err)
       },
     });
   }
@@ -120,9 +121,11 @@ export class AddBooksComponent implements OnInit {
   getCategories() {
     this.categoryService.getCategory().subscribe({
       next: (response: any) => {
+        console.log(response);
         this.categoryData = response.content;
       },
       error: (err) => {
+        console.log(err)
         // alert(err.error.content);
       },
     });

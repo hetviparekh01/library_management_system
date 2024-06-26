@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { TokenInterceptor } from './core/helper/token.interceptor';
 import { ErrorInterceptor } from './core/helper/error.interceptor';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { ErrorInterceptor } from './core/helper/error.interceptor';
     RouterModule,
     LayoutModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     {

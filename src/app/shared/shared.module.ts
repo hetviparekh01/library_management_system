@@ -4,6 +4,7 @@ import { CustomRendererComponent } from './cellrenderer/custom-renderer/custom-r
 import { DatatableComponent } from './datatable/datatable.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { CustomfilterationComponent } from './customfilteration/customfilteration.component';
+import { ChartComponent } from './chart/chart.component';
 
 
 
@@ -11,7 +12,8 @@ import { CustomfilterationComponent } from './customfilteration/customfilteratio
   declarations: [
     CustomRendererComponent,
     DatatableComponent,
-    CustomfilterationComponent
+    CustomfilterationComponent,
+    ChartComponent
   ],
   imports: [
     CommonModule,
